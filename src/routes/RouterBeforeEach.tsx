@@ -4,7 +4,7 @@ import routes from "./index";
 import { useEffect } from "react";
 import { treeConvertArr } from "@/utils/conversion";
 import { refreshOpenKeys, refreshSelectedKeys } from "../redux/actions/menu";
-import {refreshUserInfo} from "@/redux/actions/user";
+import { receiveUserInfo } from "@/redux/actions/user";
 const RouterBeforeEach = () => {
     let location = useLocation();
     const pathname = location.pathname;
@@ -21,7 +21,7 @@ const RouterBeforeEach = () => {
         }
     }, [pathname]);
     useEffect(() => {
-        dispatch(refreshUserInfo());
+        dispatch(receiveUserInfo());
     }, []);
     const dispatch = useDispatch();
     let route;

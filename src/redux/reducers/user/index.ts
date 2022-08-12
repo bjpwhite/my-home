@@ -26,9 +26,9 @@ const userReducer = (state = initialState, action: userEntity) => {
 
 interface userEntity {
     type: string,
-    userId: number,
-    token: string,
-    userInfo: object,
+    userId: number | undefined,
+    token: string | undefined,
+    userInfo: object | undefined,
 }
 
 export default userReducer

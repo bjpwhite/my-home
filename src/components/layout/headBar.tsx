@@ -1,14 +1,15 @@
 import "../../styles/headBar.less";
-import {Button, Layout} from "antd";
+import { Button, Layout } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "@/redux/actions/login";
 const { Header } = Layout;
 
 const HeadBar = () => {
-    let navigate = useNavigate();
-    const logout = () => {
-        sessionStorage.removeItem("token");
-        navigate("/login");
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(logout());
     };
     return (
         <Header className="head-bar">
@@ -17,7 +18,7 @@ const HeadBar = () => {
                 <p>H&nbsp;</p><p>O&nbsp;</p><p>M&nbsp;</p><p>E</p>
             </div>
             <div className="logout">
-                <Button type="primary" onClick={() => logout()}>退出登录</Button>
+                <Button type="primary" onClick={() => handleLogout()}>退出登录</Button>
             </div>
         </Header>
     )
