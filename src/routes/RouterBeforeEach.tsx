@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { treeConvertArr } from "@/utils/conversion";
 import { refreshOpenKeys, refreshSelectedKeys } from "../redux/actions/menu";
 import { receiveUserInfo } from "@/redux/actions/user";
+import cookie from "react-cookies";
 const RouterBeforeEach = () => {
     let location = useLocation();
     const pathname = location.pathname;
@@ -25,7 +26,7 @@ const RouterBeforeEach = () => {
     }, []);
     const dispatch = useDispatch();
     let route;
-    if (sessionStorage.getItem('token')) {
+    if (cookie.load('token')) {
         route = <Outlet/>;
     } else {
         route = <Navigate to="/login"/>;

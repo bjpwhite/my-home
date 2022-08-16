@@ -1,10 +1,10 @@
 import { login } from "@/api/common";
 import { encrypt } from "@/utils/encrypt";
-import {receiveUserInfo, refreshToken, refreshUserId, refreshUserInfo} from "@/redux/actions/user";
+import { refreshToken, refreshUserId, refreshUserInfo } from "@/redux/actions/user";
 import { Dispatch } from "redux";
 import history from "@/lib/history";
 import { message } from "antd";
-import cookie, {remove} from "react-cookies";
+import cookie from "react-cookies";
 const RES_CODE: Object = {
     2: "账号或密码不正确",
 };
@@ -36,6 +36,7 @@ export const getToken = (data: any, setLoading: any) => {
             .then((res) => {
                 setLoading(false);
                 if (res.resCode && +res.resCode === 200 && res.userId && res.token) {
+                    console.log(123);
                     dispatch(setLoginInfo(res.userId, res.token));
                     history.push("/");
                 } else {

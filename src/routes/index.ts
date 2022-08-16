@@ -49,6 +49,18 @@ const routes = [
                 title: "Demo3",
                 path: "/demos/demo3",
                 icon: "b",
+            },
+            {
+                key: "demos-CRUD",
+                title: "CRUD",
+                path: "/demos/CRUD",
+                icon: "b",
+            },
+            {
+                key: "demos-test",
+                title: "Test",
+                path: "/demos/test",
+                icon: "b",
             }
         ]
     },

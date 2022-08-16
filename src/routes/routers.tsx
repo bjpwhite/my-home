@@ -12,6 +12,8 @@ import Demo2 from "@/views/demos/demo2";
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import history from "@/lib/history";
 import Demo3 from "@/views/demos/demo3";
+import CRUD from "@/views/demos/CRUD";
+import Test from "@/views/demos/test";
 
 const Routers = () => {
 
@@ -27,6 +29,8 @@ const Routers = () => {
                         <Route path="/demos/demo1" element={<Demo1/>}/>
                         <Route path="/demos/demo2" element={<Demo2/>}/>
                         <Route path="/demos/demo3" element={<Demo3/>}/>
+                        <Route path="/demos/CRUD" element={<CRUD/>}/>
+                        <Route path="/demos/test" element={<Test/>}/>
                     </Route>
                 </Route>
                 <Route path="/login" element={<Login />} />
