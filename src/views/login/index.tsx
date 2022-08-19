@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button, Checkbox, Form, Input } from "antd";
-import { getToken } from "@/redux/actions/login";
+import { getToken, logout } from "@/redux/actions/login";
 const Login = () => {
-    let navigate = useNavigate();
     let dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        dispatch(logout());
+    }, []);
     const onFinish = (values: any) => {
         dispatch(getToken(values, setLoading));
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
     };
     return (
         <>
@@ -22,7 +20,6 @@ const Login = () => {
                 wrapperCol={{ span: 16 }}
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
                 <Form.Item

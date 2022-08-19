@@ -7,8 +7,9 @@ import { refreshOpenKeys, refreshSelectedKeys } from "../redux/actions/menu";
 import { receiveUserInfo } from "@/redux/actions/user";
 import cookie from "react-cookies";
 const RouterBeforeEach = () => {
+    const dispatch = useDispatch();
     let location = useLocation();
-    const pathname = location.pathname;
+    const { pathname } = location;
     useEffect(() => {
         let arr: any[] = [];
         treeConvertArr(JSON.parse(JSON.stringify(routes)), arr);
@@ -24,7 +25,6 @@ const RouterBeforeEach = () => {
     useEffect(() => {
         dispatch(receiveUserInfo());
     }, []);
-    const dispatch = useDispatch();
     let route;
     if (cookie.load('token')) {
         route = <Outlet/>;

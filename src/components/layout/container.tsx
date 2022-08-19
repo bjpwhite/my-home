@@ -8,19 +8,17 @@ import HeadBar from "./headBar";
 import SideBar from "./sideBar";
 
 const Container = () => {
-    const props: object = {
-        aaa: 123,
-        bbb: "bbb",
-        ccc: true
-    };
     return (
         <Layout className="layout">
             <HeadBar />
-            <Layout>
-                <SideBar {...props} />
-                <Content style={{marginLeft: 30}}>
+            <SideBar />
+            <Layout className="layout-children">
+                <div className="layout-children-content">
                     <Outlet />
-                </Content>
+                </div>
+                {/*<Content className="layout-children-content test" style={{marginLeft: 30, position: "relative"}}>
+                    <Outlet />
+                </Content>*/}
             </Layout>
         </Layout>
     )

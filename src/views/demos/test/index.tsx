@@ -12,7 +12,7 @@ const Test = () => {
                 <IconFont iconName="pdf" tip="哈哈" onClick={getInfo} />
                 <IconFont iconName="cancel" mode="tip" tip="嘿嘿" onClick={getInfo} />
                 <IconFont iconName="default" warning="是否删除此条" mode="confirm" tip="呵呵" onConfirm={getInfo} />
-                <Img src="/src/images/test.jpg" />
+                <Img src={"@/images/test.jpg"} />
             </div>
         </div>
     )

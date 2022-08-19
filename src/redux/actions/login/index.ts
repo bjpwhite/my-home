@@ -1,6 +1,6 @@
 import { login } from "@/api/common";
 import { encrypt } from "@/utils/encrypt";
-import { refreshToken, refreshUserId, refreshUserInfo } from "@/redux/actions/user";
+import {receiveUserInfo, refreshToken, refreshUserId, refreshUserInfo} from "@/redux/actions/user";
 import { Dispatch } from "redux";
 import history from "@/lib/history";
 import { message } from "antd";
@@ -23,7 +23,8 @@ export const logout = () => {
         dispatch(refreshUserInfo(undefined));
         cookie.remove("userId", {});
         cookie.remove("token", {});
-        history.push("/login");
+        cookie.remove("cpyId", {});
+        // history.push("/login");
     }
 };
 export const getToken = (data: any, setLoading: any) => {
@@ -36,7 +37,6 @@ export const getToken = (data: any, setLoading: any) => {
             .then((res) => {
                 setLoading(false);
                 if (res.resCode && +res.resCode === 200 && res.userId && res.token) {
-                    console.log(123);
                     dispatch(setLoginInfo(res.userId, res.token));
                     history.push("/");
                 } else {

@@ -26,9 +26,10 @@ instance.interceptors.request.use((config) => {
             ...config.headers,
             product_id: productId,
         };
-        const { userId, token } = store.getState().userReducer;
+        const { userId, token, companyId } = store.getState().userReducer;
         if (userId) { config.headers.user_id = userId; }
         if (token) { config.headers.token = token; }
+        if (companyId) { config.headers.cpy_Id = companyId; }
 
         return config;
     },

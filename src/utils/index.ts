@@ -14,7 +14,7 @@ export function trim(str: string) {
  */
 import dayjs from "dayjs";
 export function parseTime(time: string | number | Date | dayjs.Dayjs | null | undefined, cFormat = "YYYY-MM-DD HH:mm") {
-  if (!time) return "--";
+  if (!time) return "-";
   return dayjs(time).format(cFormat);
 }
 

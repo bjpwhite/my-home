@@ -8,8 +8,10 @@ const { Header } = Layout;
 
 const HeadBar = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleLogout = () => {
         dispatch(logout());
+        navigate("/login");
     };
     return (
         <Header className="head-bar">
