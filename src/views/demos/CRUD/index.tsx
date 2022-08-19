@@ -2,12 +2,13 @@ import React, {useCallback, useEffect, useState} from "react";
 import "./CRUD.less";
 import SearchBar from "^/searchBar";
 import SearchItem from "^/searchBar/searchItem";
-import {Input, Table} from "antd";
+import {Button, Input, Table} from "antd";
 import { columns } from "./CRUDColumns";
-import { getList } from "@/api/etc";
 import {getEtcList} from "@/redux/actions/etc";
 import {useDispatch} from "react-redux";
 import HomePagination from "^/Pagination";
+import TableOperation from "^/TableOperation";
+import IconFont from "^/common/IconFont";
 
 const CRUD = () => {
     const [searchParams, setSearchParams] = useState({ pageNo: 1, pageSize: 10 });
@@ -44,9 +45,11 @@ const CRUD = () => {
                 </SearchItem>
             </SearchBar>
             <div className="page-table-container">
-                <div className="page-table-operation">
-                    {/*{ JSON.stringify(dataSource) }*/}
-                </div>
+                <TableOperation>
+                    <Button type="primary" icon={<IconFont iconName="jia" />}>新增</Button>
+                    <Button>导入</Button>
+                    <Button>导出</Button>
+                </TableOperation>
                 <Table rowKey="id" loading={loading} columns={columns} dataSource={dataSource} scroll={{ x: 1500 }} pagination={false} />
                 <HomePagination pageSize={searchParams.pageSize} current={searchParams.pageNo} total={total} onChange={paginationChange} />
             </div>

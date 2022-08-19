@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { Pagination } from "antd";
 import type { PaginationProps } from 'antd';
 
@@ -15,9 +14,6 @@ const HomePagination = (props: any) => {
         showSizeChanger = "true",
         onChange,
     } : PropsEntity = props;
-    useEffect(() => {
-
-    }, []);
     const handleChange: PaginationProps['onChange'] = (page, pageSize) => {
         onChange(page, pageSize);
     };
