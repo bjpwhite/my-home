@@ -17,14 +17,10 @@ const SearchItem = (props: any) => {
             <Form.Item
                 label={label}
                 name={name}
-                {...props}
             >
                 { children }
             </Form.Item>
         </Col>
-        /*<Col>
-
-        </Col>*/
     )
 }
 

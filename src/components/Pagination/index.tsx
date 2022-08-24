@@ -10,6 +10,7 @@ const HomePagination = (props: any) => {
         pageSizeOptions = ["10", "20", "50", "100"],
         size,
         disabled = "false",
+        showTotal= "true",
         showQuickJumper = "true",
         showSizeChanger = "true",
         onChange,
@@ -28,7 +29,7 @@ const HomePagination = (props: any) => {
                 pageSizeOptions={pageSizeOptions}
                 size={size}
                 disabled={disabled === "true"}
-                showTotal={total => `共 ${total} 条`}
+                showTotal={total => showTotal === "true" ? `共 ${total} 条` : false}
                 onChange={handleChange}
             />
         </div>
@@ -42,6 +43,7 @@ interface PropsEntity {
     pageSizeOptions?: string[],
     size?: "default" | "small",
     disabled?: "true" | "false",
+    showTotal?: "true" | "false",
     showQuickJumper?: "true" | "false",
     showSizeChanger?: "true" | "false",
     onChange: (page: number, pageSize: number) => void,

@@ -3,18 +3,21 @@ import { parseTime } from "@/utils";
 import {Tooltip} from "antd";
 import IconFont from "^/common/IconFont";
 import React from "react";
+import {removeEtcCard} from "@/redux/actions/etc";
 
 interface DataType {
     id: number;
     cardNum: string;
     account: string;
     owner: string;
+    carId: string;
     carNum: string;
     remark: string;
     creator: string;
     createTime: number;
     updater: string;
     updateTime: number;
+    state: any;
 }
 const ellipsisStyle: object = {
     overflow: 'hidden',
@@ -89,19 +92,41 @@ export const columns: ColumnsType<DataType> = [
         align: 'right',
         fixed: 'right',
         width: 100,
-        render: (_, record) => (
-            <>
-                <IconFont iconName="edit" mode="tip" tip="编辑" onClick={() => handleEdit(record)} />
-                <IconFont className="table-delete" iconName="delete" mode="confirm" warning="是否删除此条" tip="删除" onConfirm={() => handleDelete(record)} />
-            </>
-        ),
+        render: (_, record) => {
+            return (
+                <>
+                    <IconFont iconName="edit" mode="tip" tip="编辑" onClick={() => handleEdit(record)} />
+                    <IconFont className="table-delete" iconName="delete" mode="confirm" warning="是否删除此条" tip="删除" onConfirm={() => handleDelete(record)} />
+                </>
+            )
+        },
     },
 ];
 
 const handleEdit = (record: DataType) => {
-    console.log(record);
+    const {
+        setCarId,
+        setCardNum,
+        setCardId,
+        setIsEdit,
+        setEditVisible,
+    } = record.state;
+    setCarId(record.carId);
+    setCardNum(record.cardNum);
+    setCardId(record.id);
+    setIsEdit(true);
+    setEditVisible(true);
 };
 
 const handleDelete = (record: DataType) => {
-    console.log(record);
+    const {
+        isSubmitting,
+        dispatch,
+    } = record.state;
+    if (isSubmitting) return;
+    const searchCondition = {
+        id: record.id,
+        status: 2,
+    };
+    dispatch(removeEtcCard(searchCondition, record.state));
 };

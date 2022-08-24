@@ -5,6 +5,7 @@ import countReducer from "./reducers/count";
 import personReducer from "./reducers/person";
 import menuReducer from "./reducers/menu";
 import userReducer from "@/redux/reducers/user";
+import CRUDReducer from "@/redux/reducers/CRUD";
 //创建并暴露仓库
 export default createStore(
 //连接多个子仓
@@ -14,6 +15,7 @@ export default createStore(
         personReducer,
         menuReducer,
         userReducer,
+        CRUDReducer,
     }),
 // 使用异步中间件
     applyMiddleware(thunk)
