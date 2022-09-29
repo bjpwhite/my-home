@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "antd": "^4.18.8",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",

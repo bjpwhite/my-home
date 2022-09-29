@@ -14,6 +14,8 @@ import history from "@/lib/history";
 import Demo3 from "@/views/demos/demo3";
 import CRUD from "@/views/demos/CRUD";
 import Test from "@/views/demos/test";
+import DemoMap from "@/views/demos/DemoMap";
+import DemoMap2 from "@/views/demos/DemoMap/demoMap2";
 
 const Routers = () => {
 
@@ -31,6 +33,8 @@ const Routers = () => {
                         <Route path="/demos/demo3" element={<Demo3/>}/>
                         <Route path="/demos/CRUD" element={<CRUD/>}/>
                         <Route path="/demos/test" element={<Test/>}/>
+                        <Route path="/demos/amap" element={<DemoMap/>}/>
+                        <Route path="/demos/amap2" element={<DemoMap2/>}/>
                     </Route>
                 </Route>
                 <Route path="/login" element={<Login />} />

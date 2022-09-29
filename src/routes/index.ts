@@ -61,6 +61,18 @@ const routes = [
                 title: "Test",
                 path: "/demos/test",
                 icon: "b",
+            },
+            {
+                key: "demos-AMap",
+                title: "AMap",
+                path: "/demos/amap",
+                icon: "b",
+            },
+            {
+                key: "demos-AMap2",
+                title: "AMap2",
+                path: "/demos/amap2",
+                icon: "b",
             }
         ]
     },
